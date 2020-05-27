@@ -14,13 +14,15 @@
     "babel-jest": "^24.9.0",
     "babel-loader": "8.1.0",
     "babel-plugin-named-asset-import": "^0.3.6",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-plugin-transform-react-pug": "^7.0.1",
     "babel-preset-react-app": "^9.1.2",
     "camelcase": "^5.3.1",
     "case-sensitive-paths-webpack-plugin": "2.3.0",
     "css-loader": "3.4.2",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
-    "eslint": "^6.6.0",
+    "eslint": "^7.1.0",
     "eslint-config-react-app": "^5.2.1",
     "eslint-loader": "3.0.3",
     "eslint-plugin-flowtype": "4.6.0",
@@ -28,6 +30,7 @@
     "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-react": "7.19.0",
     "eslint-plugin-react-hooks": "^1.6.1",
+    "eslint-plugin-react-pug": "^0.8.4",
     "file-loader": "4.3.0",
     "fs-extra": "^8.1.0",
     "html-webpack-plugin": "4.0.0-beta.11",
@@ -67,7 +70,16 @@
     "test": "node scripts/test.js"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "plugins": [
+      "react-pug"
+    ],
+    "extends": [
+      "react-app",
+      "plugin:react-pug/all"
+    ],
+    "globals": {
+      "pug": "readonly"
+    }
   },
   "browserslist": {
     "production": [
@@ -134,6 +146,10 @@
   "babel": {
     "presets": [
       "react-app"
+    ],
+    "plugins": [
+      "transform-react-pug",
+      "transform-react-jsx"
     ]
   }
 }
